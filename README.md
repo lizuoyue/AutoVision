@@ -6,7 +6,7 @@ The folder is originally taken from [DeepLab's official GitHub repository](https
 
 Please pay more attention to the instructions where `${SOME_DESCRIPTION}` appears because **you are required to replace these with information of your own customized dataset**. Here we also provide the pre-trained models of the backbone **MobileNet v2** and **Xception 65** for fine-tuning.
 
-With the setting of images with maximum 513 pixes in long edge, and totally 15 defined classes, the pre-trained models can achieve mIoU of 69.2% and 56.5% respectively for the backbone **MobileNet v2** and **Xception 65**.
+With the setting of images with maximum 513 pixes in long edge, and totally 15 defined classes, the pre-trained models can achieve mIoU of 56.5% and 69.2% respectively for the backbone **MobileNet v2** and **Xception 65**.
 
 The newly defined class labels are as follows:
 
