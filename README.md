@@ -137,14 +137,14 @@ sh local_test_xception_65.sh
 ```
 Do not forget to press `ENTER` when it requires you to do so. All the experiment results will be placed in the folder `tensorflow_models/research/deeplab/datasets/${DATASET_NAME}/exp`. You can use `tensorboard` to see the loss decreasing or the evaluation results.
 
-#### 3.1 Arguments should be noted
+#### 3.1 Arguments that should be noticed
 (1) `--{train,val,vis}_crop_size="A,B"`. `A` and `B` should satisfy the form of `n * output_stride + 1`;
 
 (2) `--num_clones=1`. You can set a higher number for training using multiple GPUs.
 
 (3) `--base_learning_rate=0.00001`. This is relatively small learning rate. You can set a higher number for training (like `0.007`) or fine-tune (like `0.0001`).
 
-#### 3.2 Arguments added afterwards
+#### 3.2 Arguments that are added additionally
 
 (4) `--max_ckpt=5`. Maximum number of checkpoints to keep. 
 
