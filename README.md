@@ -1,12 +1,12 @@
-### Instructions for training DeepLab v3+ on customized dataset (AutoVision)
+## Instructions for training DeepLab v3+ on customized dataset (AutoVision)
 
-#### 1. Before start
+### 1. Before start
 
 The folder is originally taken from [DeepLab's official GitHub repository](https://github.com/tensorflow/models/tree/master/research/deeplab). Some files are modified in order for more customized training and to be adapted for the AutoVision project. Thus, this folder is already different from the original one.
 
 Please pay more attention to the instructions where `${SOME_DESCRIPTION}` appears because **you are required to replace these with information of your own customized dataset**. Here we also provide the pre-trained models of the backbone **MobileNet v2** and **Xception 65** for fine-tuning.
 
-With the setting of images with maximum 513 pixes in long edge, and totally 15 defined classes, the pre-trained models can achieve mIoU of 71.0% and 56.5% respectively for the backbone **MobileNet v2** and **Xception 65**.
+With the setting of images with maximum 513 pixes in long edge, and totally 15 defined classes, the pre-trained models can achieve mIoU of 69.2% and 56.5% respectively for the backbone **MobileNet v2** and **Xception 65**.
 
 The newly defined class labels are as follows:
 
@@ -29,9 +29,11 @@ The newly defined class labels are as follows:
 | 14 | Other Objects | 255, 255, 255 |
 | 255 | Undefined | 0, 0, 0 |
 
-#### 2. Create customized dataset
+Now you can download the package file `tensorflow_models.zip` from this [link](https://drive.google.com/open?id=1TtZGO6pdISwOcEUY_nZ2t0IGt_TyL9Sy).
 
-##### Step 1: Place images and labels correctly
+### 2. Create customized dataset
+
+#### Step 1: Place images and labels correctly
 
 In the location of `tensorflow_models.zip`, run the following commands in the terminal.
 ```
@@ -63,7 +65,7 @@ After doing so, you should see a folder structure like this:
 
 **Pre-trained Models**: Both the pre-trained models with different backbones (MobileNet v2 and Xception 65) are already correctly placed in the folder `${DATASET_NAME}/init_models/`.
 
-##### Step 2: Modify data generator
+#### Step 2: Modify data generator
 
 In the folder `tensorflow_models/research/deeplab/datasets/`, modify `data_generator.py`. Do not forget to modify `${DATASET_NAME}` with the name of your customized dataset.
 
@@ -92,7 +94,7 @@ _DATASETS_INFORMATION = {
 
 Save `data_generator.py` and close.
 
-##### Step 3: Modify data building files
+#### Step 3: Modify data building files
 
 Again, in the folder `tensorflow_models/research/deeplab/datasets/`, run the following commands in the terminal.
 
@@ -112,7 +114,7 @@ Modify `build_${DATASET_NAME}_data.py`:
 
 (5) In line 142, replace `'png'` with `'${YOUR_IMAGE_EXTENSION}'`, and replace `channels=3` with `channels=${NUMBER_OF_CHANNELS_OF_IMAGE}`. For AutoVision, since grayscale image is used, here we set `channels=1`.
 
-##### Step 4: Generate TensorFlow data files
+#### Step 4: Generate TensorFlow data files
 
 Finally, in the folder `tensorflow_models/research/deeplab/datasets/`, run the following commands in the terminal.
 ```
@@ -124,7 +126,7 @@ python build_${DATASET_NAME}_data.py \
 
 If it runs successfully, you will see several files in the folder `${DATASET_NAME}/tfrecord`.
 
-#### 3. Train, validate and export model
+### 3. Train, validate and export model
 
 Go to the folder `tensorflow_models/research/deeplab/`. Modify `local_test_mobilenet_v2.sh` and `local_test_xception_65.sh`. In line 43, replace `DATASET_FOLDER=""` with `DATASET_FOLDER="${DATASET_NAME}"`, and run the following commands in the terminal.
 
@@ -133,6 +135,25 @@ sh local_test_mobilenet_v2.sh
 # or
 sh local_test_xception_65.sh
 ```
-All the experiment results will be placed in the folder `tensorflow_models/research/deeplab/datasets/${DATASET_NAME}/exp`.
+Do not forget to press `ENTER` when it requires you to do so. All the experiment results will be placed in the folder `tensorflow_models/research/deeplab/datasets/${DATASET_NAME}/exp`. You can use `tensorboard` to see the loss decreasing or the evaluation results.
 
-To
+#### 3.1 Arguments should be noted
+(1) `--{train,val,vis}_crop_size="A,B"`. `A` and `B` should satisfy the form of `n * output_stride + 1`;
+
+(2) `--num_clones=1`. You can set a higher number for training using multiple GPUs.
+
+(3) `--base_learning_rate=0.00001`. This is relatively small learning rate. You can set a higher number for training (like `0.007`) or fine-tune (like `0.0001`).
+
+#### 3.2 Arguments added afterwards
+
+(4) `--max_ckpt=5`. Maximum number of checkpoints to keep. 
+
+(5) `--img_channels=1`. `1` for grayscale image, `3` for RGB image.
+
+(6) `--init_exclude="[]"`. Both the pre-trained model is used for grayscale image and output 15 channels.
+
+(7) `--train_only="[]"`. 
+
+(8) `-aug_labels="[11]"` and `--aug_weights="[3]"`. `11` refers to the class unpaved road and its weight is `3` times higher than other classes. You can set more labels with higher weights by providing a string of Python list to each argument.
+
+For other arguments, you can refer to the inside of the files `train.py`, `eval.py`, `vis.py` and `export_model.py`.
