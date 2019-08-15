@@ -44,19 +44,19 @@ cp -r default ${DATASET_NAME}
 After doing so, you should see a folder structure like this:
 ```
 + ${DATASET_NAME}
-	+ leftImg8bit
-		+ train
-			+ train_default	# This is the folder to place training images (TODO)
-		+ val
-			+ val_default	# This is the folder to place validation images (TODO)
-	+ gtFine
-		+ train
-			+ train_default	# This is the folder to place training GT labels (TODO)
-		+ val
-			+ val_default	# This is the folder to place validation GT labels (TODO)
-	+ init_models
-		+ mobilenet_v2		# This is the folder to place pre-trained MobileNet v2 model (DONE)
-		+ xception_65		# This is the folder to place pre-trained Xception 65 model (DONE)
+    + leftImg8bit
+        + train
+            + train_default	# This is the folder to place training images (TODO)
+        + val
+            + val_default	# This is the folder to place validation images (TODO)
+    + gtFine
+        + train
+            + train_default	# This is the folder to place training GT labels (TODO)
+        + val
+            + val_default	# This is the folder to place validation GT labels (TODO)
+    + init_models
+        + mobilenet_v2		# This is the folder to place pre-trained MobileNet v2 model (DONE)
+        + xception_65		# This is the folder to place pre-trained Xception 65 model (DONE)
 ```
 
 **Images**: All the training images are supposed to be placed in the folder `${DATASET_NAME}/leftImg8bit/train/train_default/`. Alternatively, you can also create several folders in `${DATASET_NAME}/leftImg8bit/train/` and place images separately in each folder you created. The procedure is same for validation images in `${DATASET_NAME}/leftImg8bit/val/`. For file extension, only `.jpg` and `.png` are supported.
@@ -150,7 +150,9 @@ Do not forget to press `ENTER` when it requires you to do so. All the experiment
 
 (5) `--img_channels=1`. `1` for grayscale image, `3` for RGB image.
 
-(6) `--init_exclude="[]"`. Both the pre-trained model is used for grayscale image and output 15 channels.
+(6) `--init_exclude="[]"`. Both the pre-trained model is used for 1-channel input and 15-channel output. If you use RGB image, please exclude 
+[Xception 65](xception_65.txt) and [MobileNet v2](mobilenet_v2.txt)
+
 
 (7) `--train_only="[]"`. 
 
