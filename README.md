@@ -1,4 +1,4 @@
-## Instructions for training DeepLab v3+ on customized dataset (AutoVision)
+## Instructions for training DeepLab v3+ on customized (AutoVision) dataset
 
 ### 1. Before start
 
