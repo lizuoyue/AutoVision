@@ -17,7 +17,7 @@
 import os
 import tensorflow as tf
 
-from tensorflow.python.client import session
+from tensorflow.python.tools import freeze_graph
 from deeplab import common
 from deeplab import input_preprocess
 from deeplab import model
@@ -75,9 +75,11 @@ _RAW_OUTPUT_PROBS_NAME = 'RawSemanticProbs'
 
 def _create_input_tensors():
   """Creates and prepares input tensors for DeepLab model.
+
   This method creates a 4-D uint8 image tensor 'ImageTensor' with shape
   [1, None, None, 3]. The actual input tensor name to use during inference is
   'ImageTensor:0'.
+
   Returns:
     image: Preprocessed 4-D float32 tensor with shape [1, crop_height,
       crop_width, 3].
@@ -100,7 +102,7 @@ def _create_input_tensors():
       max_resize_value=FLAGS.max_resize_value,
       resize_factor=FLAGS.resize_factor,
       is_training=False,
-      model_variant='mobilenet_v2',
+      model_variant=FLAGS.model_variant,
       img_channels=FLAGS.img_channels)
   resized_image_size = tf.shape(resized_image)[:2]
 
@@ -181,38 +183,25 @@ def main(unused_argv):
     if FLAGS.quantize_delay_step >= 0:
       tf.contrib.quantize.create_eval_graph()
 
-    with tf.Session() as sess:
-      saver = tf.train.Saver(tf.all_variables())
-      saver.restore(sess, FLAGS.checkpoint_path)
+    saver = tf.train.Saver(tf.all_variables())
 
-      tensor_info_image = tf.saved_model.utils.build_tensor_info(image)
-      tensor_info_probs = tf.saved_model.utils.build_tensor_info(semantic_probs)
-      tensor_info_labels = tf.saved_model.utils.build_tensor_info(semantic_labels)
+    dirname = os.path.dirname(FLAGS.export_path)
+    tf.gfile.MakeDirs(dirname)
+    graph_def = tf.get_default_graph().as_graph_def(add_shapes=True)
+    freeze_graph.freeze_graph_with_def_protos(
+        graph_def,
+        saver.as_saver_def(),
+        FLAGS.checkpoint_path,
+        ",".join([_OUTPUT_LABELS_NAME, _OUTPUT_PROBS_NAME]),
+        restore_op_name=None,
+        filename_tensor_name=None,
+        output_graph=FLAGS.export_path,
+        clear_devices=True,
+        initializer_nodes=None)
 
-      builder = tf.saved_model.builder.SavedModelBuilder(FLAGS.export_path)
-      tensor_info_inputs = {
-        _INPUT_NAME: tensor_info_image,
-      }
-      tensor_info_outputs = {
-        _OUTPUT_LABELS_NAME: tensor_info_labels,
-        _OUTPUT_PROBS_NAME: tensor_info_probs,
-      }
+    if FLAGS.save_inference_graph:
+      tf.train.write_graph(graph_def, dirname, 'inference_graph.pbtxt')
 
-      signature = (
-        tf.saved_model.signature_def_utils.build_signature_def(
-          inputs=tensor_info_inputs,
-          outputs=tensor_info_outputs,
-          method_name=tf.saved_model.signature_constants.PREDICT_METHOD_NAME,
-        )
-      )
-      builder.add_meta_graph_and_variables(
-        sess,
-        [tf.saved_model.tag_constants.SERVING],
-        signature_def_map={
-          "signature": signature
-        }
-      )
-      builder.save()
 
 if __name__ == '__main__':
   flags.mark_flag_as_required('checkpoint_path')
