@@ -37,7 +37,11 @@ Now you can download the package file `tensorflow_models.zip` from this [link](h
 
 In the location of `tensorflow_models.zip`, run the following commands in the terminal.
 ```
+git clone https://github.com/lizuoyue/AutoVision.git
 unzip tensorflow_models.zip
+cp AutoVision/model.py tensorflow_models/research/deeplab
+cp AutoVision/export*.py tensorflow_models/research/deeplab
+cp local_test*.sh tensorflow_models/research/deeplab
 cd tensorflow_models/research/deeplab/datasets
 cp -r default ${DATASET_NAME}
 ```
