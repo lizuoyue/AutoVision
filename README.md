@@ -41,7 +41,7 @@ git clone https://github.com/lizuoyue/AutoVision.git
 unzip tensorflow_models.zip
 cp AutoVision/model.py tensorflow_models/research/deeplab
 cp AutoVision/export*.py tensorflow_models/research/deeplab
-cp local_test*.sh tensorflow_models/research/deeplab
+cp AutoVision/local_test*.sh tensorflow_models/research/deeplab
 cd tensorflow_models/research/deeplab/datasets
 cp -r default ${DATASET_NAME}
 ```
