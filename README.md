@@ -125,7 +125,7 @@ Finally, in the folder `tensorflow_models/research/deeplab/datasets/`, run the f
 mkdir -p ./${DATASET_NAME}/tfrecord
 python build_${DATASET_NAME}_data.py \
   --cityscapes_root="./${DATASET_NAME}" \
-  --output_dir="./${DATASET_NAME}/tfrecord" \
+  --output_dir="./${DATASET_NAME}/tfrecord"
 ```
 
 If it runs successfully, you will see several files in the folder `${DATASET_NAME}/tfrecord`.
