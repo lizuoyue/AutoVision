@@ -29,7 +29,7 @@ The newly defined class labels are as follows:
 | 14 | Other Objects | 255, 255, 255 |
 | 255 | Undefined | 0, 0, 0 |
 
-Now you can download the package file `tensorflow_models.zip` from this [link](https://drive.google.com/open?id=1TtZGO6pdISwOcEUY_nZ2t0IGt_TyL9Sy).
+Now you can download the package file `tensorflow_models.zip` from this [link](https://drive.google.com/open?id=1cj-NrZaC83ZVtopNqFtIStCSbh8uOHVy).
 
 ### 2. Create customized dataset
 
