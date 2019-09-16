@@ -1,0 +1,68 @@
+﻿No.,Label ID Before,Label ID After,Label Name After,R,G,B,Label Name Before
+1,0,14,Ignored Object,165,42,42,Bird
+2,1,14,Ignored Object,0,192,0,Ground Animal
+3,2,7,Pedestrian Area,196,196,196,Curb
+4,3,0,Barrier,190,153,153,Fence
+5,4,0,Barrier,180,165,180,Guard Rail
+6,5,0,Barrier,90,120,150,Barrier
+7,6,1,Building,102,102,156,Wall
+8,7,6,Paved Road,128,64,255,Bike Lane
+9,8,6,Paved Road,140,140,200,Crosswalk - Plain
+10,9,7,Pedestrian Area,170,170,170,Curb Cut
+11,10,6,Paved Road,250,170,160,Parking
+12,11,7,Pedestrian Area,96,96,96,Pedestrian Area
+13,12,14,Ignored Object,230,150,140,Rail Track
+14,13,6,Paved Road,128,64,128,Road
+15,14,6,Paved Road,110,110,110,Service Lane
+16,15,7,Pedestrian Area,244,35,232,Sidewalk
+17,16,1,Building,150,100,100,Bridge
+18,17,1,Building,70,70,70,Building
+19,18,1,Building,150,120,90,Tunnel
+20,19,8,Person,220,20,60,Person
+21,20,8,Person,255,0,0,Bicyclist
+22,21,8,Person,255,0,100,Motorcyclist
+23,22,8,Person,255,0,200,Other Rider
+24,23,6,Paved Road,200,128,128,Lane Marking - Crosswalk
+25,24,6,Paved Road,255,255,255,Lane Marking - General
+26,25,14,Ignored Object,64,170,64,Mountain
+27,26,11,Unpaved Road,230,160,50,Sand
+28,27,10,Sky,70,130,180,Sky
+29,28,14,Ignored Object,190,255,255,Snow
+30,29,3,Terrain,152,251,152,Terrain
+31,30,12,Vegetation,107,142,35,Vegetation
+32,31,13,Water,0,170,30,Water
+33,32,14,Ignored Object,255,255,128,Banner
+34,33,14,Ignored Object,250,0,30,Bench
+35,34,14,Ignored Object,100,140,180,Bike Rack
+36,35,14,Ignored Object,220,220,220,Billboard
+37,36,7,Pedestrian Area,220,128,128,Catch Basin
+38,37,14,Ignored Object,222,40,40,CCTV Camera
+39,38,14,Ignored Object,100,170,30,Fire Hydrant
+40,39,14,Ignored Object,40,40,40,Junction Box
+41,40,14,Ignored Object,33,33,33,Mailbox
+42,41,6,Paved Road,100,128,160,Manhole
+43,42,14,Ignored Object,142,0,0,Phone Booth
+44,43,6,Paved Road,70,100,150,Pothole
+45,44,9,Pole Object,210,170,100,Street Light
+46,45,9,Pole Object,153,153,153,Pole
+47,46,14,Ignored Object,128,128,128,Traffic Sign Frame
+48,47,9,Pole Object,0,0,80,Utility Pole
+49,48,9,Pole Object,250,170,30,Traffic Light
+50,49,14,Ignored Object,192,192,192,Traffic Sign (Back)
+51,50,14,Ignored Object,220,220,0,Traffic Sign (Front)
+52,51,14,Ignored Object,140,140,20,Trash Can
+53,52,5,Motorcycle,119,11,32,Bicycle
+54,53,14,Ignored Object,150,0,255,Boat
+55,54,4,Heavy Vehicle,0,60,100,Bus
+56,55,2,Car,0,0,142,Car
+57,56,14,Ignored Object,0,0,90,Caravan
+58,57,5,Motorcycle,0,0,230,Motorcycle
+59,58,14,Ignored Object,0,80,100,On Rails
+60,59,14,Ignored Object,128,64,64,Other Vehicle
+61,60,4,Heavy Vehicle,0,0,110,Trailer
+62,61,4,Heavy Vehicle,0,0,70,Truck
+63,62,14,Ignored Object,0,0,192,Wheeled Slow
+64,63,14,Ignored Object,32,32,32,Car Mount
+65,64,14,Ignored Object,120,10,10,Ego Vehicle
+66,65,11,Unpaved Road,220,180,50,Unpaved Road
+67,255,255,Unlabeled,0,0,0,Unlabeled
