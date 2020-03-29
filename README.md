@@ -12,7 +12,7 @@ The newly defined class labels are as follows:
 
 | ID | Class Name | RGB Color |
 | :-: | :--------: | :--------: |
-| 0 | Barrier | 90, 120, 150 $\color{90,120,150}{ABC}$ |
+| 0 | Barrier | 90, 120, 150 $\color{red}{ABC}$ |
 | 1 | Building | 70, 70, 70 |
 | 2 | Car | 0, 0, 142 |
 | 3 | Terrain | 152, 251, 152 |
