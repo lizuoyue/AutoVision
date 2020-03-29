@@ -12,22 +12,22 @@ The newly defined class labels are as follows:
 
 | ID | Class Name | RGB Color |
 | :-: | :--------: | :--------: |
-| 0 | Barrier | 90, 120, 150 ![](https://via.placeholder.com/150x40/5A7896/FFFFFF?text=90,120,150) |
-| 1 | Building | 70, 70, 70 ![](https://via.placeholder.com/150x40/464646/FFFFFF?text=70,70,70) |
-| 2 | Car | 0, 0, 142 ![](https://via.placeholder.com/150x40/00008E/FFFFFF?text=0,0,142) |
-| 3 | Terrain | 152, 251, 152 ![](https://via.placeholder.com/150x40/98FB98/FFFFFF?text=152,251,152) |
-| 4 | Heavy Vehicle | 0, 60, 100 ![](https://via.placeholder.com/150x40/003C64/FFFFFF?text=0,60,100) |
-| 5 | Motorcycle | 119, 11, 32 ![](https://via.placeholder.com/150x40/770B20/FFFFFF?text=119,11,32) |
-| 6 | Paved Road | 128, 64, 128 ![](https://via.placeholder.com/150x40/804080/FFFFFF?text=128,64,128) |
-| 7 | Pedestrian Area | 170, 170, 170 ![](https://via.placeholder.com/150x40/AAAAAA/FFFFFF?text=170,170,170) |
-| 8 | Person | 220, 20, 60 ![](https://via.placeholder.com/150x40/DC143C/FFFFFF?text=220,20,60) |
-| 9 | Pole Object | 250, 170, 30 ![](https://via.placeholder.com/150x40/FAAA1E/FFFFFF?text=250,170,30) |
-| 10 | Sky | 70, 130, 180 ![](https://via.placeholder.com/150x40/4682B4/FFFFFF?text=70,130,180) |
-| 11 | Unpaved Road | 220, 180, 50 ![](https://via.placeholder.com/150x40/DCB432/FFFFFF?text=220,180,50) |
-| 12 | Vegetation | 107, 142, 35 ![](https://via.placeholder.com/150x40/6B8E23/FFFFFF?text=107,142,35) |
-| 13 | Water | 0, 170, 30 ![](https://via.placeholder.com/150x40/00AA1E/FFFFFF?text=0,170,30) |
-| 14 | Other Objects | 255, 255, 255 ![](https://via.placeholder.com/150x40/FFFFFF/FFFFFF?text=255,255,255) |
-| 255 | Undefined | 0, 0, 0 ![](https://via.placeholder.com/150x40/000000/FFFFFF?text=0,0,0) |
+| 0 | Barrier | ![](https://via.placeholder.com/150x40/5A7896/FFFFFF?text=90,120,150) |
+| 1 | Building | ![](https://via.placeholder.com/150x40/464646/FFFFFF?text=70,70,70) |
+| 2 | Car | ![](https://via.placeholder.com/150x40/00008E/FFFFFF?text=0,0,142) |
+| 3 | Terrain | ![](https://via.placeholder.com/150x40/98FB98/000000?text=152,251,152) |
+| 4 | Heavy Vehicle | ![](https://via.placeholder.com/150x40/003C64/FFFFFF?text=0,60,100) |
+| 5 | Motorcycle | ![](https://via.placeholder.com/150x40/770B20/FFFFFF?text=119,11,32) |
+| 6 | Paved Road | ![](https://via.placeholder.com/150x40/804080/FFFFFF?text=128,64,128) |
+| 7 | Pedestrian Area | ![](https://via.placeholder.com/150x40/AAAAAA/FFFFFF?text=170,170,170) |
+| 8 | Person | ![](https://via.placeholder.com/150x40/DC143C/FFFFFF?text=220,20,60) |
+| 9 | Pole Object | ![](https://via.placeholder.com/150x40/FAAA1E/FFFFFF?text=250,170,30) |
+| 10 | Sky | ![](https://via.placeholder.com/150x40/4682B4/FFFFFF?text=70,130,180) |
+| 11 | Unpaved Road | ![](https://via.placeholder.com/150x40/DCB432/FFFFFF?text=220,180,50) |
+| 12 | Vegetation | ![](https://via.placeholder.com/150x40/6B8E23/FFFFFF?text=107,142,35) |
+| 13 | Water | ![](https://via.placeholder.com/150x40/00AA1E/FFFFFF?text=0,170,30) |
+| 14 | Other Objects | ![](https://via.placeholder.com/150x40/FFFFFF/000000?text=255,255,255) |
+| 255 | Undefined | ![](https://via.placeholder.com/150x40/000000/FFFFFF?text=0,0,0) |
 
 Now you can download the package file `tensorflow_models.zip` from this [link](https://drive.google.com/open?id=1cj-NrZaC83ZVtopNqFtIStCSbh8uOHVy).
 
