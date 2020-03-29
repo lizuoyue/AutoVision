@@ -12,7 +12,7 @@ The newly defined class labels are as follows:
 
 | ID | Class Name | RGB Color |
 | :-: | :--------: | :--------: |
-| 0 | Barrier | 90, 120, 150 <i style="color:rgb(107,79,187)">AAA</i> |
+| 0 | Barrier | 90, 120, 150 ![#f03c15](https://placehold.it/15/f03c15/000000?text=+) `#f03c15` |
 | 1 | Building | 70, 70, 70 |
 | 2 | Car | 0, 0, 142 |
 | 3 | Terrain | 152, 251, 152 |
